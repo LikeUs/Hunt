@@ -60,6 +60,7 @@ reload@1.1.4
 retry@1.0.4
 routepolicy@1.0.6
 sc-admin@0.0.1
+sc-hunt-steps@0.0.1
 sc-index@0.0.1
 sc-scheduled-messages@0.0.1
 semantic:ui@2.1.6

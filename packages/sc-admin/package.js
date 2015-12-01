@@ -12,6 +12,7 @@ Package.onUse(function(api) {
   api.use('babrahams:editable-text');
 
   api.use('sc-scheduled-messages');
+  api.use('sc-hunt-steps');
 
   api.addFiles([
     'admin.html',

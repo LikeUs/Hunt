@@ -68,24 +68,46 @@
           <th>Hint</th>
           <th>Answer</th>
           <th>Order</th>
+          <th></th>
         </tr>
       </thead>
 
       <tbody>
+        {{#each steps}}
         <tr>
-          <td>What's the special at Mosiac?</td>
-          <td>Mojito</td>
+          <td>
+            {{>
+            editableText
+            collection="hunt-steps"
+            field="hint"
+            substitute="<i class='pencil icon'></i>"
+            }}
+          </td>
+          <td>
+            {{>
+            editableText
+            collection="hunt-steps"
+            field="answer"
+            substitute="<i class='pencil icon'></i>"
+            }}
+          </td>
           <td>
             <div class="ui icon buttons">
-              <button class="ui button"><i class="chevron up icon"></i></button>
-              <button class="ui button"><i class="chevron down icon"></i></button>
+              <button class="ui button" rel="move-up"><i class="chevron up icon"></i></button>
+              <div class="or" data-text="{{position}}"></div>
+              <button class="ui button" rel="move-down"><i class="chevron down icon"></i></button>
             </div>
           </td>
+          <td>
+            <button class="ui red button" rel="remove">Remove</button>
+          </td>
         </tr>
+
+        {{/each}}
       </tbody>
 
       <tfoot>
-        <td colspan="2"><button class="ui button">Add</button></td>
+        <td colspan="4"><button class="ui button" rel="add">Add</button></td>
       </tfoot>
     </table>
 

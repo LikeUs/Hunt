@@ -24,3 +24,31 @@ Template.ScheduledMessages.events({
   }
 
 });
+
+Template.HuntSteps.helpers({
+
+  steps: function() {
+    return HuntSteps.find({}, { sort: { position: 1 } });
+  }
+
+});
+
+Template.HuntSteps.events({
+  'click [rel=add]': function() {
+    HuntSteps.insert({ position: HuntSteps.find({}).count() });
+  },
+
+  'click [rel=remove]': function() {
+    HuntSteps.remove(this._id);
+    HuntSteps.resetPositions();
+  },
+
+  'click [rel=move-up]': function() {
+    HuntSteps.moveUp(this._id);
+  },
+
+  'click [rel=move-down]': function() {
+    HuntSteps.moveDown(this._id);
+  }
+
+});
