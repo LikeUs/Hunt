@@ -9,6 +9,9 @@ Package.onUse(function(api) {
   api.use('templating');
   api.use('kadira:flow-router');
   api.use('kadira:blaze-layout');
+  api.use('babrahams:editable-text');
+
+  api.use('sc-scheduled-messages');
 
   api.addFiles([
     'admin.html',

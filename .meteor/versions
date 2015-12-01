@@ -2,6 +2,7 @@ autopublish@1.0.4
 autoupdate@1.2.4
 babel-compiler@5.8.24_1
 babel-runtime@0.1.4
+babrahams:editable-text@0.2.1
 base64@1.0.4
 binary-heap@1.0.4
 blaze@2.1.3
@@ -14,6 +15,7 @@ callback-hook@1.0.4
 check@1.1.0
 coffeescript@1.0.11
 cosmos:browserify@0.5.1
+dburles:mongo-collection-instances@0.2.6
 ddp@1.2.2
 ddp-client@1.2.1
 ddp-common@1.2.2
@@ -59,6 +61,7 @@ retry@1.0.4
 routepolicy@1.0.6
 sc-admin@0.0.1
 sc-index@0.0.1
+sc-scheduled-messages@0.0.1
 semantic:ui@2.1.6
 semantic:ui-data@2.1.6
 session@1.1.1

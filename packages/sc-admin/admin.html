@@ -27,24 +27,32 @@
         </tr>
       </thead>
       <tbody>
-
+        {{#each messages }}
         <tr>
-          <td>7:00pm</td>
-          <td>Begin</td>
+          <td>
+            {{>
+            editableText
+            collection="scheduled-messages"
+            field="sendAt"
+            substitute="<i class='pencil icon'></i>"
+            }}
+          </td>
+          <td>
+            {{>
+            editableText
+            collection="scheduled-messages"
+            field="messageText"
+            substitute="<i class='pencil icon'></i>"
+            }}
+          </td>
           <td><button class="ui button">Test</button></td>
-          <td><button class="ui red button">Remove</button></td>
+          <td><button class="ui red button" rel="remove">Remove</button></td>
         </tr>
-
-        <tr>
-          <td>7:00pm</td>
-          <td>Begin</td>
-          <td><button class="ui button">Test</button></td>
-          <td><button class="ui red button">Remove</button></td>
-        </tr>
+        {{/each}}
       </tbody>
 
       <tfoot>
-        <td colspan="4"><button class="ui button">Add</button></td>
+        <td colspan="4"><button class="ui button" rel="add">Add</button></td>
       </tfoot>
     </table>
 </template>
