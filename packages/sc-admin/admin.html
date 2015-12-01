@@ -1,0 +1,118 @@
+<template name="Admin">
+
+  <div style="margin-top: 20px;"></div>
+
+  <div class="ui container">
+    <div class="ui large header">Santa Cruise Admin</div>
+
+    {{> ScheduledMessages }}
+
+    {{> HuntSteps }}
+
+    {{> People }}
+
+  </div>
+</template>
+
+<template name="ScheduledMessages">
+    <div class="ui header">Scheduled Messages</div>
+
+    <table class="ui striped table">
+      <thead>
+        <tr>
+          <th>Time</th>
+          <th>Message</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <td>7:00pm</td>
+          <td>Begin</td>
+          <td><button class="ui button">Test</button></td>
+          <td><button class="ui red button">Remove</button></td>
+        </tr>
+
+        <tr>
+          <td>7:00pm</td>
+          <td>Begin</td>
+          <td><button class="ui button">Test</button></td>
+          <td><button class="ui red button">Remove</button></td>
+        </tr>
+      </tbody>
+
+      <tfoot>
+        <td colspan="4"><button class="ui button">Add</button></td>
+      </tfoot>
+    </table>
+</template>
+
+<template name="HuntSteps">
+    <div class="ui header">
+      Treasure Hunt Steps
+    </div>
+
+    <table class="ui striped table">
+      <thead>
+        <tr>
+          <th>Hint</th>
+          <th>Answer</th>
+          <th>Order</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>What's the special at Mosiac?</td>
+          <td>Mojito</td>
+          <td>
+            <div class="ui icon buttons">
+              <button class="ui button"><i class="chevron up icon"></i></button>
+              <button class="ui button"><i class="chevron down icon"></i></button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+
+      <tfoot>
+        <td colspan="2"><button class="ui button">Add</button></td>
+      </tfoot>
+    </table>
+
+</template>
+
+<template name="People">
+  <div class="ui header">
+    People
+  </div>
+
+  <table class="ui striped table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Step</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>Max</td>
+        <td>831 531 7345</td>
+        <td>1</td>
+        <td>
+          <button class="ui button">Reset to step 1</button>
+          <button class="ui red button">Remove</button>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="4">Text <b>foo</b> to xxx xxx xxxx to register</td>
+      </tr>
+    </tfoot>
+  </table>
+</template>

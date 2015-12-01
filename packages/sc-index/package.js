@@ -6,7 +6,7 @@ Package.describe({
 Package.onUse(function(api) {
   api.versionsFrom('1.2.1');
   api.use('templating');
-
+  api.use('sc-admin');
   api.addFiles('index.html');
 });
 
