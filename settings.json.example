@@ -4,6 +4,12 @@
     "password": ""
   },
 
+  "twilio": {
+    "from": "",
+    "sid": "",
+    "token": ""
+  },
+
   "public": {
 
   }

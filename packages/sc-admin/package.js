@@ -15,8 +15,14 @@ Package.onUse(function(api) {
   api.use('sc-hunt-steps');
   api.use('sc-participants');
 
+  api.use('sc-engine', 'server');
+
   api.addFiles([
     'admin.html',
     'admin.js'
   ], 'client');
+
+  api.addFiles([
+    'server.js'
+  ], 'server');
 });

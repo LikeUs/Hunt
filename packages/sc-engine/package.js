@@ -18,9 +18,11 @@ Package.onUse(function(api) {
   api.use('sc-hunt-steps');
   api.use('sc-scheduled-messages');
 
-  api.addFiles('engine.js');
+  api.addFiles([
+    'engine.js'
+  ], 'server');
 
-  api.export('Engine');
+  api.export('Engine', 'server');
 });
 
 Package.onTest(function(api) {

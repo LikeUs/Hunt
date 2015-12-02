@@ -21,6 +21,10 @@ Template.ScheduledMessages.events({
 
   'click [rel=remove]': function() {
     ScheduledMessages.remove(this._id);
+  },
+
+  'click [rel=send-test]': function() {
+    Meteor.call('runTestScheduledMessage', this._id);
   }
 
 });
