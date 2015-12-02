@@ -62,6 +62,7 @@ routepolicy@1.0.6
 sc-admin@0.0.1
 sc-hunt-steps@0.0.1
 sc-index@0.0.1
+sc-participants@0.0.1
 sc-scheduled-messages@0.0.1
 semantic:ui@2.1.6
 semantic:ui-data@2.1.6

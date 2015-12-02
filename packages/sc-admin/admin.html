@@ -9,7 +9,7 @@
 
     {{> HuntSteps }}
 
-    {{> People }}
+    {{> Participants }}
 
   </div>
 </template>
@@ -113,9 +113,9 @@
 
 </template>
 
-<template name="People">
+<template name="Participants">
   <div class="ui header">
-    People
+    Participants
   </div>
 
   <table class="ui striped table">
@@ -129,15 +129,24 @@
     </thead>
 
     <tbody>
+      {{#each participants }}
       <tr>
-        <td>Max</td>
-        <td>831 531 7345</td>
-        <td>1</td>
         <td>
-          <button class="ui button">Reset to step 1</button>
-          <button class="ui red button">Remove</button>
+          {{>
+          editableText
+          collection="participants"
+          field="name"
+          substitute="Anonymous"
+          }}
+        </td>
+        <td>{{phone}}</td>
+        <td>{{currentStep}}</td>
+        <td>
+          <button class="ui button" rel="reset-step">Reset to first step</button>
+          <button class="ui red button" rel="remove">Remove</button>
         </td>
       </tr>
+      {{/each}}
     </tbody>
     <tfoot>
       <tr>

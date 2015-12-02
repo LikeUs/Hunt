@@ -52,3 +52,14 @@ Template.HuntSteps.events({
   }
 
 });
+
+Template.Participants.helpers({
+  participants: function() {
+    return Participants.find({});
+  }
+});
+
+Template.Participants.events({
+  'click [rel=reset-step]': function() {
+  }
+});
