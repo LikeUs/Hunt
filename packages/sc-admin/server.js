@@ -2,7 +2,7 @@
 Meteor.methods({
 
   runTestScheduledMessage: function(id) {
-    Engine.sendScheduledMessages(ScheduledMessage.findOne(id).sendAt);
+    Engine.sendScheduledMessages(ScheduledMessages.findOne(id).sendAt);
   }
 
 });

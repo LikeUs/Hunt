@@ -12,6 +12,7 @@ Package.onUse(function(api) {
   api.use('ecmascript', 'server');
   api.use('meteorhacks:picker', 'server');
   api.use('dispatch:twilio', 'server');
+  api.use('jag:pince');
 
   api.use('sc-engine');
 
@@ -20,7 +21,4 @@ Package.onUse(function(api) {
 });
 
 Package.onTest(function(api) {
-  api.use('sc-twilio');
-  api.use('tinytest@1.0.0');
-  api.addFiles('twilio-test.js', 'server');
 });
