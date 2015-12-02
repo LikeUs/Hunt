@@ -1,5 +1,5 @@
 
-FlowRouter.route('/admin', {
+FlowRouter.route('/', {
   action: function() {
     BlazeLayout.render('Admin');
   }
