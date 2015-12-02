@@ -23,7 +23,6 @@
           <th>Time</th>
           <th>Message</th>
           <th></th>
-          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -45,14 +44,16 @@
             substitute="<i class='pencil icon'></i>"
             }}
           </td>
-          <td><button class="ui button">Test</button></td>
-          <td><button class="ui red button" rel="remove">Remove</button></td>
+          <td class="right aligned">
+            <button class="ui button">Test</button>
+            <button class="ui red button" rel="remove">Remove</button>
+          </td>
         </tr>
         {{/each}}
       </tbody>
 
       <tfoot>
-        <td colspan="4"><button class="ui button" rel="add">Add</button></td>
+        <td colspan="3"><button class="ui button" rel="add">Add</button></td>
       </tfoot>
     </table>
 </template>
@@ -98,7 +99,7 @@
               <button class="ui button" rel="move-down"><i class="chevron down icon"></i></button>
             </div>
           </td>
-          <td>
+          <td class="right aligned">
             <button class="ui red button" rel="remove">Remove</button>
           </td>
         </tr>
@@ -124,6 +125,7 @@
         <th>Name</th>
         <th>Phone</th>
         <th>Step</th>
+        <th>Registered</th>
         <th></th>
       </tr>
     </thead>
@@ -140,8 +142,9 @@
           }}
         </td>
         <td>{{phone}}</td>
-        <td>{{currentStep}}</td>
-        <td>
+        <td>{{step}}</td>
+        <td>{{#if registered}}<i class="green check icon"></i>{{/if}}</td>
+        <td class="right aligned">
           <button class="ui button" rel="reset-step">Reset to first step</button>
           <button class="ui red button" rel="remove">Remove</button>
         </td>
