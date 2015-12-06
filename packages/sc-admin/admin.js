@@ -65,5 +65,10 @@ Template.Participants.helpers({
 
 Template.Participants.events({
   'click [rel=reset-step]': function() {
+    Participants.update(this._id, { $set: { step: 0 } });
+  },
+
+  'click [rel=remove]': function() {
+    Participants.remove(this._id);
   }
 });

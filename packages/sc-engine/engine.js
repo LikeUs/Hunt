@@ -1,4 +1,4 @@
-
+var logger = new Logger('engine');
 Engine = {}
 
 Engine.handleIncomingMessage = handleIncomingMessage;
@@ -18,10 +18,13 @@ function handleIncomingMessage(phone, text) {
 
 function handleNewParticipant(phone, text) {
   if (text === 'secretcode') {
-    Participants.upsert({ phone: phone}, { phone: phone, registered: true, step: 0 });
+    Participants.upsert({ phone: phone}, { $set: { phone: phone, registered: true, step: 0 }});
     Engine.send(phone, "Welcome");
+    var p = Participants.findOne({ phone: phone });
+    sendStepMessage(p, p.step);
+
   } else {
-    Participants.upsert({ phone: phone}, { phone: phone, registered: false });
+    Participants.upsert({ phone: phone}, {$set: { phone: phone, registered: false }});
     Engine.send(phone, 'That wasn\'t the secret code. You\'re not registered');
   }
 }
@@ -41,7 +44,11 @@ function handleStep(participant, text) {
 
 function sendStepMessage(participant, stepNumber) {
   var step = HuntSteps.findOne({ position: stepNumber });
-  Engine.send(participant.phone, step.hint);
+  if (step) {
+    Engine.send(participant.phone, step.hint);
+  } else {
+    Engine.send(participant.phone, "all done!");
+  }
 }
 
 function sendScheduledMessages(sendAt) {
