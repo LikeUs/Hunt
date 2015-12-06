@@ -31,28 +31,38 @@ Template.ScheduledMessages.events({
 
 Template.HuntSteps.helpers({
 
-  steps: function() {
-    return HuntSteps.find({}, { sort: { position: 1 } });
+  steps: function(zoneId) {
+    return HuntSteps.find({ zoneId: zoneId }, { sort: { position: 1 } });
+  },
+
+  zones: function() {
+    return Zones.find({});
   }
 
 });
 
 Template.HuntSteps.events({
+
+  'click [rel=add-zone]': function() {
+    Zones.insert({});
+  },
+
+
   'click [rel=add]': function() {
-    HuntSteps.insert({ position: HuntSteps.find({}).count() });
+    HuntSteps.insert({ zoneId: this._id, position: HuntSteps.find({ zoneId: this._id }).count() });
   },
 
   'click [rel=remove]': function() {
     HuntSteps.remove(this._id);
-    HuntSteps.resetPositions();
+    HuntSteps.resetPositions(this.zoneId);
   },
 
   'click [rel=move-up]': function() {
-    HuntSteps.moveUp(this._id);
+    HuntSteps.moveUp(this.zoneId, this._id);
   },
 
   'click [rel=move-down]': function() {
-    HuntSteps.moveDown(this._id);
+    HuntSteps.moveDown(this.zoneId, this._id);
   }
 
 });

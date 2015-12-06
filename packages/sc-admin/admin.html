@@ -59,12 +59,23 @@
 </template>
 
 <template name="HuntSteps">
+  <button class="ui tiny compact icon left floated button" rel="add-zone"><i class="plus icon"></i></button>
     <div class="ui header">
-      Treasure Hunt Steps
+      Treasure Hunt Zones
     </div>
-
+    {{#each zones}}
     <table class="ui striped table">
       <thead>
+        <tr>
+          <th colspan="4">
+            {{>
+            editableText
+            collection="zones"
+            field="name"
+            substitute="<i class='pencil icon'></i>"
+            }}
+          </th>
+        </tr>
         <tr>
           <th>Hint</th>
           <th>Answer</th>
@@ -74,7 +85,7 @@
       </thead>
 
       <tbody>
-        {{#each steps}}
+        {{#each steps _id}}
         <tr>
           <td>
             {{>
@@ -111,7 +122,7 @@
         <td colspan="4"><button class="ui button" rel="add">Add</button></td>
       </tfoot>
     </table>
-
+    {{/each}}
 </template>
 
 <template name="Participants">

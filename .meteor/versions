@@ -73,6 +73,7 @@ sc-index@0.0.1
 sc-participants@0.0.1
 sc-scheduled-messages@0.0.1
 sc-twilio@0.0.1
+sc-zones@0.0.1
 semantic:ui@2.1.6
 semantic:ui-data@2.1.6
 session@1.1.1

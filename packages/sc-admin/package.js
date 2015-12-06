@@ -14,6 +14,7 @@ Package.onUse(function(api) {
   api.use('sc-scheduled-messages');
   api.use('sc-hunt-steps');
   api.use('sc-participants');
+  api.use('sc-zones');
 
   api.use('sc-engine', 'server');
 
