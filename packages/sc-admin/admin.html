@@ -5,12 +5,48 @@
   <div class="ui container">
     <div class="ui large header">Santa Cruise Admin</div>
 
-    {{> ScheduledMessages }}
+    <div class="ui top attached tabular menu">
+      <a class="active item" data-tab="settings">Settings</a>
+      <a class="item" data-tab="scheduled">Schedule</a>
+      <a class="item" data-tab="zones">Zones</a>
+      <a class="item" data-tab="participants">Participants</a>
+    </div>
 
+    <div class="ui bottom attached active tab segment" data-tab="settings">
+      {{> Settings }}
+    </div>
+
+
+    <div class="ui bottom attached tab segment" data-tab="scheduled">
+      {{> ScheduledMessages }}
+    </div>
+
+    <div class="ui bottom attached tab segment" data-tab="zones">
     {{> HuntSteps }}
+    </div>
 
+    <div class="ui bottom attached tab segment" data-tab="participants">
     {{> Participants }}
+    </div>
 
+  </div>
+</template>
+
+<template name="Settings">
+  <div class="ui form">
+    {{#each fields}}
+    <div class="field">
+      <label>{{label}}</label>
+      {{>
+      editableText
+      collection="hunts"
+      field=field
+      context=hunt
+      substitute="<i class='pencil icon'></i>"
+      textarea=true
+      }}
+    </div>
+    {{/each}}
   </div>
 </template>
 
@@ -42,6 +78,7 @@
             collection="scheduled-messages"
             field="messageText"
             substitute="<i class='pencil icon'></i>"
+            textarea=true
             }}
           </td>
           <td class="right aligned">
@@ -93,6 +130,7 @@
             collection="hunt-steps"
             field="hint"
             substitute="<i class='pencil icon'></i>"
+            textarea=true
             }}
           </td>
           <td>

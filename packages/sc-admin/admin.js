@@ -5,6 +5,27 @@ FlowRouter.route('/', {
   }
 });
 
+Template.Admin.onRendered(function() {
+  $('.menu .item').tab();
+});
+
+Template.Settings.helpers({
+  hunt: function() {
+    return Hunts.findOne({ name: 'Santa Cruise' });
+  },
+
+  fields: [
+    {
+      label: "Welcome Message",
+      field: "welcome"
+    },
+    {
+      label: "Finished Message",
+      field: "finished"
+    }
+  ]
+});
+
 Template.ScheduledMessages.helpers({
 
   messages: function() {

@@ -15,12 +15,14 @@ Package.onUse(function(api) {
   api.use('sc-hunt-steps');
   api.use('sc-participants');
   api.use('sc-zones');
+  api.use('sc-hunts');
 
   api.use('sc-engine', 'server');
 
   api.addFiles([
     'admin.html',
-    'admin.js'
+    'admin.js',
+    'admin.css'
   ], 'client');
 
   api.addFiles([
