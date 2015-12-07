@@ -17,11 +17,19 @@ Template.Settings.helpers({
   fields: [
     {
       label: "Welcome Message",
-      field: "welcome"
+      field: "welcome",
     },
     {
       label: "Finished Message",
       field: "finished"
+    },
+    {
+      label: "Unsubscribe Command",
+      field: "unsubscribeCommand"
+    },
+    {
+      label: "Unsubscribe Response",
+      field: "unsubscribeResponse"
     }
   ]
 });
