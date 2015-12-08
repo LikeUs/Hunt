@@ -3,3 +3,8 @@ span.editable-text {
   background-color: #eee;
   display:block;
 }
+
+ul.editable-list {
+  margin-left: 20px;
+  list-style-type: disc;
+}

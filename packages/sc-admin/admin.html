@@ -96,26 +96,41 @@
 </template>
 
 <template name="HuntSteps">
-  <button class="ui tiny compact icon left floated button" rel="add-zone"><i class="plus icon"></i></button>
+  <button class="ui right floated button" rel="add-zone">Add Zone</button>
     <div class="ui header">
       Treasure Hunt Zones
     </div>
-    {{#each zones}}
+
+
+  {{#each zones}}
+
+  <div class="ui small header">
+    {{>
+    editableText
+    collection="zones"
+    field="name"
+    substitute="<i class='pencil icon'></i>"
+    }}
+  </div>
+
+  <div class="ui form">
+    <div class="field">
+      <label>Zone entry answers</label>
+      {{>
+      editableList
+      collection="zones"
+      field="entryCodes"
+      substitute="<i class='pencil icon'></i>"
+      }}
+    </div>
+  </div>
+
+
     <table class="ui striped table">
       <thead>
         <tr>
-          <th colspan="4">
-            {{>
-            editableText
-            collection="zones"
-            field="name"
-            substitute="<i class='pencil icon'></i>"
-            }}
-          </th>
-        </tr>
-        <tr>
           <th>Hint</th>
-          <th>Answer</th>
+          <th>Answers</th>
           <th>Order</th>
           <th></th>
         </tr>
@@ -135,9 +150,9 @@
           </td>
           <td>
             {{>
-            editableText
+            editableList
             collection="hunt-steps"
-            field="answer"
+            field="answers"
             substitute="<i class='pencil icon'></i>"
             }}
           </td>

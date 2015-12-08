@@ -77,7 +77,7 @@ Template.HuntSteps.helpers({
 Template.HuntSteps.events({
 
   'click [rel=add-zone]': function() {
-    Zones.insert({});
+    Zones.insert({ position: Zones.find({}).count() });
   },
 
 

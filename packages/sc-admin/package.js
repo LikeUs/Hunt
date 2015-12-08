@@ -10,6 +10,7 @@ Package.onUse(function(api) {
   api.use('kadira:flow-router');
   api.use('kadira:blaze-layout');
   api.use('babrahams:editable-text');
+  api.use('babrahams:editable-list');
 
   api.use('sc-scheduled-messages');
   api.use('sc-hunt-steps');

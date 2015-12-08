@@ -2,6 +2,7 @@ autopublish@1.0.4
 autoupdate@1.2.4
 babel-compiler@5.8.24_1
 babel-runtime@0.1.4
+babrahams:editable-list@0.1.7
 babrahams:editable-text@0.8.6
 base64@1.0.4
 binary-heap@1.0.4
@@ -51,6 +52,8 @@ meteor-base@1.0.1
 meteorhacks:picker@1.0.3
 minifiers@1.1.7
 minimongo@1.0.10
+mizzao:build-fetcher@0.2.0
+mizzao:jquery-ui@1.11.4
 mobile-experience@1.0.1
 mobile-status-bar@1.0.6
 momentjs:moment@2.10.6
