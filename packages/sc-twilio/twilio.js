@@ -11,8 +11,8 @@ Picker.route('/twilio/incoming', function(params, req, res, next) {
   logger.warn('incoming message: ' + JSON.stringify(message));
 
   var responseMessage = Engine.handleIncomingMessage(message.From, message.Body);
-  res.writeHead(200);
   res.setHeader('content-type', 'text/xml');
+  res.writeHead(200);
   res.end(
     '<?xml version="1.0" encoding="UTF-8"?>' +
       '<Response>' +
