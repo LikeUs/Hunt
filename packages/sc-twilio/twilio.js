@@ -10,9 +10,14 @@ Picker.route('/twilio/incoming', function(params, req, res, next) {
 
   logger.warn('incoming message: ' + JSON.stringify(message));
 
-  Engine.handleIncomingMessage(message.From, message.Body);
+  var responseMessage = Engine.handleIncomingMessage(message.From, message.Body);
   res.writeHead(200);
-  res.end('<?xml version="1.0" encoding="UTF-8"?><Response></Response>');
+  res.end(
+    '<?xml version="1.0" encoding="UTF-8"?>' +
+      '<Response>' +
+      '<Message>' + responseMessage + '</Message>' +
+      '</Response>'
+  );
 });
 
 
