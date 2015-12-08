@@ -10,6 +10,8 @@
       <a class="item" data-tab="scheduled">Schedule</a>
       <a class="item" data-tab="zones">Zones</a>
       <a class="item" data-tab="participants">Participants</a>
+      <a class="item" data-tab="statistics">Statistics</a>
+      <a class="item" data-tab="logs">Logs</a>
     </div>
 
     <div class="ui bottom attached active tab segment" data-tab="settings">
@@ -28,6 +30,15 @@
     <div class="ui bottom attached tab segment" data-tab="participants">
     {{> Participants }}
     </div>
+
+    <div class="ui bottom attached tab segment" data-tab="statistics">
+      {{> Statistics }}
+    </div>
+
+    <div class="ui bottom attached tab segment" data-tab="logs">
+      {{> Logs }}
+    </div>
+
 
   </div>
 </template>
@@ -221,4 +232,12 @@
       </tr>
     </tfoot>
   </table>
+</template>
+
+<template name="Statistics">
+  Statistics go here
+</template>
+
+<template name="Logs">
+  Logs go here
 </template>
