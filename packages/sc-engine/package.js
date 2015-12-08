@@ -14,10 +14,13 @@ Package.onUse(function(api) {
   api.versionsFrom('1.2.1');
   api.use('ecmascript');
   api.use('jag:pince');
+  api.use('underscore');
 
   api.use('sc-participants');
   api.use('sc-hunt-steps');
   api.use('sc-scheduled-messages');
+  api.use('sc-hunts');
+  api.use('sc-zones');
 
   api.addFiles([
     'engine.js'
@@ -35,6 +38,8 @@ Package.onTest(function(api) {
   api.use('sc-participants');
   api.use('sc-hunt-steps');
   api.use('sc-scheduled-messages');
+  api.use('sc-hunts');
+  api.use('sc-zones');
 
   api.addFiles([
     'engine-tests.js'

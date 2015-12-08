@@ -30,6 +30,10 @@ Template.Settings.helpers({
     {
       label: "Unsubscribe Response",
       field: "unsubscribeResponse"
+    },
+    {
+      label: "Incorrect Step Answer Response",
+      field: "incorrectAnswer"
     }
   ]
 });
