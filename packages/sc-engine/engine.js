@@ -21,7 +21,7 @@ function handleIncomingMessage(phone, text) {
     return hunt.welcome;
   }
 
-  if (text === hunt.unsubscribeCommand) {
+  if (FuzzyMatch.equals(hunt.unsubscribeCommand, text)) {
     Participants.update({ _id: participant._id }, { unsubscribed: true });
     return hunt.unsubscribeResponse;
   }
