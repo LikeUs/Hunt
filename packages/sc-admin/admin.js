@@ -34,6 +34,10 @@ Template.Settings.helpers({
     {
       label: "Incorrect Step Answer Response",
       field: "incorrectAnswer"
+    },
+    {
+      label: "Unavailable Bar Message",
+      field: "unavailableZone"
     }
   ]
 });

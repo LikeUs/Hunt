@@ -31,11 +31,15 @@ function handleIncomingMessage(phone, text) {
   }
 
   if (_.isUndefined(participant.zone)) {
-    placeInZone(participant, text);
-    participant = Participants.findOne(participant._id);
-    var zone = Zones.findOne({ position: participant.zone });
-    var step = HuntSteps.findOne({ zoneId: zone._id, position: 0 });
-    return step.hint;
+    var placed = placeInZone(participant, text);
+    if (placed) {
+      participant = Participants.findOne(participant._id);
+      var zone = Zones.findOne({ position: participant.zone });
+      var step = HuntSteps.findOne({ zoneId: zone._id, position: 0 });
+      return step.hint;
+    } else {
+      return hunt.unavailableZone;
+    }
   }
 
 
@@ -92,14 +96,12 @@ function placeInZone(participant, text) {
   });
 
   if (zone) {
-    console.log('zone', zone);
     Participants.update(participant._id, {
       $set: { zone: zone.position, step: 0 }
     });
+    return true;
   } else {
-    Participants.update(participant._id, {
-      $set: { zone: 0, step: 0 }
-    });
+    return false;
   }
 }
 

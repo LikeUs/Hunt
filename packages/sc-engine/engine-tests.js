@@ -59,7 +59,8 @@ function setupEngine() {
     finished: "All done",
     unsubscribeCommand: "unsubscribeme",
     unsubscribeResponse: "you're unsubscribed",
-    incorrectAnswer: "That's not correct"
+    incorrectAnswer: "That's not correct",
+    unavailableZone: "That's not a place"
   });
 }
 
@@ -96,6 +97,24 @@ Tinytest.add('register successfully', function(test) {
   });
 });
 
+Tinytest.add('register unsuccessfully', function(test) {
+  setupEngine();
+
+  var res = Engine.handleIncomingMessage('+11111111111', 'hi');
+
+  var p = Participants.findOne({ phone: '+11111111111' });
+
+  test.equal(res, 'Welcome');
+  test.isNotUndefined(p);
+
+  res = Engine.handleIncomingMessage('+11111111111', "floobity");
+
+  p = Participants.findOne({ phone: '+11111111111' });
+
+  test.isUndefined(p.zone);
+  test.equal(res, "That's not a place");
+  test.isUndefined(p.step);
+});
 
 
 function addParticipant(phone) {
