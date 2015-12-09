@@ -139,7 +139,7 @@ Tinytest.add('skipping step 1', function(test) {
 // Passing step 1
 
 Tinytest.add('passing step 1', function(test) {
-  _.each(["four", "4"], function(answer) {
+  _.each(["four", "4", "Four", "four   "], function(answer) {
     setupEngine();
     addParticipant('8315317345');
 

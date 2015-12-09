@@ -59,7 +59,7 @@ function handleStep(participant, text) {
   var zone = Zones.findOne({ position: participant.zone });
   var step = HuntSteps.findOne({ position: participant.step, zoneId: zone._id });
 
-  if (text === 'skip' || _.contains(step.answers, text)) {
+  if (text === 'skip' || _.any(step.answers, function(a) { return FuzzyMatch.equals(a, text); })) {
 
     Participants.update(
       participant._id,
@@ -91,7 +91,7 @@ function placeInZone(participant, text) {
   var zones = Zones.find({}).fetch();
   var zone = _.find(zones, function(zone) {
     return _.any(zone.entryCodes, function(code) {
-      return (new RegExp(code, "i")).test(text);
+      return FuzzyMatch.contains(text, code);
     });
   });
 

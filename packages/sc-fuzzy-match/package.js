@@ -1,5 +1,5 @@
 Package.describe({
-  name: 'sc-engine',
+  name: 'sc-fuzzy-match',
   version: '0.0.1',
   // Brief, one-line summary of the package.
   summary: '',
@@ -13,21 +13,10 @@ Package.describe({
 Package.onUse(function(api) {
   api.versionsFrom('1.2.1');
   api.use('ecmascript');
-  api.use('jag:pince');
-  api.use('underscore');
 
-  api.use('sc-fuzzy-match');
-  api.use('sc-participants');
-  api.use('sc-hunt-steps');
-  api.use('sc-scheduled-messages');
-  api.use('sc-hunts');
-  api.use('sc-zones');
+  api.addFiles(['fuzzy-match.js']);
 
-  api.addFiles([
-    'engine.js'
-  ], 'server');
-
-  api.export('Engine', 'server');
+  api.export('FuzzyMatch');
 });
 
 Package.onTest(function(api) {
@@ -35,14 +24,9 @@ Package.onTest(function(api) {
   api.use('tinytest');
   api.use('underscore');
 
-  api.use('sc-engine');
-  api.use('sc-participants');
-  api.use('sc-hunt-steps');
-  api.use('sc-scheduled-messages');
-  api.use('sc-hunts');
-  api.use('sc-zones');
+  api.use('sc-fuzzy-match');
 
   api.addFiles([
-    'engine-tests.js'
-  ], 'server');
+    'fuzzy-match-tests.js'
+  ]);
 });
