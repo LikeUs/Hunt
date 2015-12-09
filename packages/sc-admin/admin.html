@@ -12,6 +12,7 @@
       <a class="item" data-tab="participants">Participants</a>
       <a class="item" data-tab="statistics">Statistics</a>
       <a class="item" data-tab="logs">Logs</a>
+      <a class="item" data-tab="fuzzy">Fuzzy Match Testing</a>
     </div>
 
     <div class="ui bottom attached active tab segment" data-tab="settings">
@@ -37,6 +38,10 @@
 
     <div class="ui bottom attached tab segment" data-tab="logs">
       {{> Logs }}
+    </div>
+
+    <div class="ui bottom attached tab segment" data-tab="fuzzy">
+      {{> FuzzyMatchTesting }}
     </div>
 
 
@@ -234,4 +239,11 @@
 
 <template name="Logs">
   Logs go here
+</template>
+
+<template name="FuzzyMatchTesting">
+
+  Does <input name="match-test-a"> match <input name="match-test-b">?
+  {{#if theyMatch}}<i class="green check icon"></i>{{else}}<i class="red ban icon"></i>{{/if}}
+
 </template>

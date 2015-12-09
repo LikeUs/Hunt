@@ -11,12 +11,14 @@ Package.onUse(function(api) {
   api.use('kadira:blaze-layout');
   api.use('babrahams:editable-text');
   api.use('babrahams:editable-list');
+  api.use('reactive-var');
 
   api.use('sc-scheduled-messages');
   api.use('sc-hunt-steps');
   api.use('sc-participants');
   api.use('sc-zones');
   api.use('sc-hunts');
+  api.use('sc-fuzzy-match');
 
   api.use('sc-engine', 'server');
 

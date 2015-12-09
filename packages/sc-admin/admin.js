@@ -119,3 +119,26 @@ Template.Participants.events({
     Participants.remove(this._id);
   }
 });
+
+Template.FuzzyMatchTesting.onCreated(function() {
+  this.theyMatch = new ReactiveVar(null);
+});
+
+Template.FuzzyMatchTesting.events({
+  "keyup input": function() {
+    console.log('hello');
+    var template = Template.instance();
+    template.theyMatch.set(
+      FuzzyMatch.equals(
+        template.find('[name=match-test-a]').value,
+        template.find('[name=match-test-b]').value
+      )
+    );
+  }
+});
+
+Template.FuzzyMatchTesting.helpers({
+  theyMatch: function() {
+    return Template.instance().theyMatch.get();
+  }
+});
