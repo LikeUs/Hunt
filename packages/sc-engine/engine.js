@@ -135,7 +135,7 @@ function sendStepMessage(participant, stepNumber) {
 }
 
 function sendScheduledMessages(sendAt) {
-  var scheduledMessage = ScheduledMessages.findOne({ sendAt: "7:00pm" });
+  var scheduledMessage = ScheduledMessages.findOne({ sendAt: sendAt });
 
   if (!scheduledMessage) { return; }
 
