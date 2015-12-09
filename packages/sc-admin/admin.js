@@ -20,6 +20,14 @@ Template.Settings.helpers({
       field: "welcome",
     },
     {
+      label: "What is next response",
+      field: "whatIsNextResponse"
+    },
+    {
+      label: "What is next error (if they don't send something with 'next' in it",
+      field: "whatIsNextError"
+    },
+    {
       label: "Finished Message",
       field: "finished"
     },

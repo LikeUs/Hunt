@@ -31,14 +31,25 @@ function handleIncomingMessage(phone, text) {
   }
 
   if (_.isUndefined(participant.zone)) {
-    var placed = placeInZone(participant, text);
-    if (placed) {
-      participant = Participants.findOne(participant._id);
-      var zone = Zones.findOne({ position: participant.zone });
-      var step = HuntSteps.findOne({ zoneId: zone._id, position: 0 });
-      return step.hint;
+
+    if (participant.receivedWhatIsNext) {
+      var placed = placeInZone(participant, text);
+      if (placed) {
+        participant = Participants.findOne(participant._id);
+        var zone = Zones.findOne({ position: participant.zone });
+        var step = HuntSteps.findOne({ zoneId: zone._id, position: 0 });
+        return step.hint;
+      } else {
+        return hunt.unavailableZone;
+      }
     } else {
-      return hunt.unavailableZone;
+      if (FuzzyMatch.contains(text, "next")) {
+        Participants.update(participant._id, { $set: { receivedWhatIsNext: true } })
+        return hunt.whatIsNextResponse;
+      } else {
+        return hunt.whatIsNextError;
+      }
+
     }
   }
 

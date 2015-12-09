@@ -60,7 +60,9 @@ function setupEngine() {
     unsubscribeCommand: "unsubscribeme",
     unsubscribeResponse: "you're unsubscribed",
     incorrectAnswer: "That's not correct",
-    unavailableZone: "That's not a place"
+    unavailableZone: "That's not a place",
+    whatIsNextError: "Not what's next",
+    whatIsNextResponse: "This is next"
   });
 }
 
@@ -87,6 +89,13 @@ Tinytest.add('register successfully', function(test) {
     test.equal(res, 'Welcome');
     test.isNotUndefined(p);
 
+    res = Engine.handleIncomingMessage('+11111111111', 'What is not soon?');
+
+    test.equal(res, "Not what's next");
+
+    res = Engine.handleIncomingMessage('+11111111111', 'What is next?');
+    test.equal(res, "This is next");
+
     res = Engine.handleIncomingMessage('+11111111111', ex.code);
 
     p = Participants.findOne({ phone: '+11111111111' });
@@ -106,6 +115,9 @@ Tinytest.add('register unsuccessfully', function(test) {
 
   test.equal(res, 'Welcome');
   test.isNotUndefined(p);
+
+  res = Engine.handleIncomingMessage('+11111111111', 'What is next?');
+  test.equal(res, "This is next");
 
   res = Engine.handleIncomingMessage('+11111111111', "floobity");
 
@@ -203,7 +215,6 @@ Tinytest.add('whole hunt', function(test) {
   addParticipant('8315317345');
   Participants.update({ phone: '8315317345' },
                       { $set: { zone: 0, step: 0 } });
-
 
   Engine.handleIncomingMessage('8315317345', '4');
   Engine.handleIncomingMessage('8315317345', '5');
