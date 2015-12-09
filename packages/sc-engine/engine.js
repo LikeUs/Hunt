@@ -26,6 +26,10 @@ function handleIncomingMessage(phone, text) {
     return hunt.unsubscribeResponse;
   }
 
+  if (FuzzyMatch.equals('help', text)) {
+    return hunt.helpResponse;
+  }
+
   if (participant.finished) {
     return hunt.finished;
   }

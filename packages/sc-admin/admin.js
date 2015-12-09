@@ -46,7 +46,12 @@ Template.Settings.helpers({
     {
       label: "Unavailable Bar Message",
       field: "unavailableZone"
+    },
+    {
+      label: "Help Message",
+      field: "helpResponse"
     }
+
   ]
 });
 
