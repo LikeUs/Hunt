@@ -21,6 +21,11 @@ function handleIncomingMessage(phone, text) {
     return hunt.welcome;
   }
 
+  if (text === hunt.unsubscribeCommand) {
+    Participants.update({ _id: participant._id }, { unsubscribed: true });
+    return hunt.unsubscribeResponse;
+  }
+
   if (participant.finished) {
     return hunt.finished;
   }
@@ -33,10 +38,7 @@ function handleIncomingMessage(phone, text) {
     return step.hint;
   }
 
-  if (text === hunt.unsubscribeCommand) {
-    Participants.update({ _id: participant._id }, { unsubscribed: true });
-    return hunt.unsubscribeResponse;
-  }
+
 
   var stepResponse = handleStep(participant, text);
 
