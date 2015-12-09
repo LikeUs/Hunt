@@ -22,7 +22,7 @@ function handleIncomingMessage(phone, text) {
   }
 
   if (FuzzyMatch.equals(hunt.unsubscribeCommand, text)) {
-    Participants.update({ _id: participant._id }, { unsubscribed: true });
+    Participants.update({ _id: participant._id }, { $set: { unsubscribed: true } });
     return hunt.unsubscribeResponse;
   }
 
