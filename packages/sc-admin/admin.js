@@ -107,14 +107,14 @@ Template.HuntSteps.events({
 Template.Participants.helpers({
   participants: function() {
     return Participants.find({});
+  },
+
+  lengthOf: function(ar) {
+    return ar && ar.length;
   }
 });
 
 Template.Participants.events({
-  'click [rel=reset-step]': function() {
-    Participants.update(this._id, { $set: { step: 0 } });
-  },
-
   'click [rel=remove]': function() {
     Participants.remove(this._id);
   }

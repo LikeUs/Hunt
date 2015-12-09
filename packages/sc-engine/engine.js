@@ -59,7 +59,27 @@ function handleStep(participant, text) {
   var zone = Zones.findOne({ position: participant.zone });
   var step = HuntSteps.findOne({ position: participant.step, zoneId: zone._id });
 
-  if (text === 'skip' || _.any(step.answers, function(a) { return FuzzyMatch.equals(a, text); })) {
+  if (FuzzyMatch.equals('skip', text) || _.any(step.answers, function(a) { return FuzzyMatch.equals(a, text); })) {
+
+    if (FuzzyMatch.equals('skip', text)) {
+      Participants.update(
+        participant._id,
+        {
+          $push: {
+            answeredSteps: step._id
+          }
+        }
+      );
+    } else {
+      Participants.update(
+        participant._id,
+        {
+          $push: {
+            skippedSteps: step._id
+          }
+        }
+      );
+    }
 
     Participants.update(
       participant._id,
