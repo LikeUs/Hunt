@@ -66,7 +66,7 @@ function handleStep(participant, text) {
         participant._id,
         {
           $push: {
-            answeredSteps: step._id
+            skippedSteps: step._id
           }
         }
       );
@@ -75,7 +75,7 @@ function handleStep(participant, text) {
         participant._id,
         {
           $push: {
-            skippedSteps: step._id
+            answeredSteps: step._id
           }
         }
       );
