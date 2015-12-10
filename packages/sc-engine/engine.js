@@ -26,7 +26,7 @@ function handleIncomingMessage(phone, text) {
     return hunt.unsubscribeResponse;
   }
 
-  if (FuzzyMatch.equals('help', text)) {
+  if (FuzzyMatch.equals('north pole', text)) {
     return hunt.helpResponse;
   }
 
