@@ -17,7 +17,7 @@ function handleIncomingMessage(phone, text) {
   var isNew = !participant;
 
   if (isNew) {
-    Participants.insert({ phone: phone });
+    Participants.insert({ phone: phone, name: text });
     return hunt.welcome;
   }
 
