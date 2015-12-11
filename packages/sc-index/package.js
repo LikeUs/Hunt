@@ -8,7 +8,10 @@ Package.onUse(function(api) {
   api.use('templating');
   api.use('sc-admin');
   api.use('sc-twilio');
+  api.use('sc-schedule', 'server');
   api.addFiles('index.html');
+
+  api.addFiles('server.js', 'server');
 });
 
 Package.onTest(function(api) {

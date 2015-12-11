@@ -74,6 +74,7 @@
         <tr>
           <th>Time</th>
           <th>Message</th>
+          <th>Sent</th>
           <th></th>
         </tr>
       </thead>
@@ -96,6 +97,11 @@
             substitute="<i class='pencil icon'></i>"
             textarea=true
             }}
+          </td>
+          <td>
+            {{#if sent}}
+            <i class="green check icon"></i>
+            {{/if}}
           </td>
           <td class="right aligned">
             <button class="ui button" rel="send-test">Test</button>
