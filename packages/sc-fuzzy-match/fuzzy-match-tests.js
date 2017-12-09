@@ -8,6 +8,7 @@ Tinytest.add('FuzzyMatch - equals', function(test) {
     "Foo": "FoO",
     "Out in the rain": "outintherain",
     "they're": "theyre",
+      "hula’s": "hulas"
     "THe End": "the end",
     "Foo-bar": "foobar",
   }, function(b, a) {

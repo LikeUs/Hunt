@@ -7,6 +7,8 @@ function normalize(s) {
 
   out = out.replace(/'/g, "");
 
+  out = out.replace(/’/g, "");
+
   out = out.replace(/-/g, "");
 
   return out;
