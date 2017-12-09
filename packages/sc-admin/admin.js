@@ -86,7 +86,7 @@ Template.HuntSteps.helpers({
   },
 
   zones: function() {
-    return Zones.find({});
+    return Zones.find({}, { sort: { position: 1 } });
   }
 
 });
